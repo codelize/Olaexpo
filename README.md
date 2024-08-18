@@ -11,7 +11,9 @@ Este é um projeto de um aplicativo simples em React Native para consultar ender
 
 Abaixo está uma captura de tela do aplicativo em execução:
 
-![Screenshot](./assets/screenshot.png)
+
+<img src="https://github.com/user-attachments/assets/80884603-5d27-482a-a948-d396002ebfa6" alt="Captura de Tela" width="300"/>
+
 
 
 ## Tecnologias Utilizadas
