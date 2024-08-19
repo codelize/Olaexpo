@@ -3,46 +3,51 @@ export const styles = {
       backgroundColor: "#103F19",
       flex: 1,
       alignItems: "center",
-      justifyContent: "flex-start", // Alinha os elementos no topo
-      paddingTop: 20, // Espaçamento no topo para evitar colar na borda superior
+      justifyContent: "center", 
+      padding: 20, 
     },
     titulo: {
       color: "white",  
-      fontSize: 30,
+      fontSize: 24,
       padding: 10, 
       textAlign: "center",
-      marginTop: 10 // Espaçamento abaixo da imagem
+      marginVertical: 20, 
     },
     TextInput: {
       backgroundColor: "#ececec",
       padding: 15,
-      width: 150,
-      borderRadius: 6,
-      marginTop: 5 // Espaçamento entre a imagem e o campo de entrada
+      width: '80%', 
+      borderRadius: 8,
+      marginVertical: 10, 
+      fontSize: 18,
     },
     form: {
-      marginTop: 5
+      width: '100%', 
+      alignItems: 'center',
     },
     resultado: {
-      fontSize: 30
+      fontSize: 18,
+      color: "#ffffff",
+      marginTop: 20,
+      textAlign: "center",
     },
     btn: {
-        backgroundColor: "#41784C",
-      width: 150,
-      borderRadius: 50,
-      padding: 8,
+      backgroundColor: "#41784C",
+      width: '80%', 
+      borderRadius: 25,
+      padding: 10,
       alignItems: "center",
-      marginTop: 10
+      marginTop: 15,
     },
     btnText: {
       color: "#fff",
-      fontSize: 20 
+      fontSize: 18,
     },
     img: {
-      borderRadius: 16,
-      width: 420,
-      height: 100,
-      marginTop: 10, // Pequeno espaçamento abaixo da imagem
+      width: '100%', 
+      height: 120,
+      borderRadius: 12,
+      marginBottom: 20, 
     }
   };
   
