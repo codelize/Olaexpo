@@ -1,36 +1,65 @@
 import React from 'react';
-import { SafeAreaView, Text, TouchableOpacity, Image } from 'react-native';
-import { GlobalStyles } from '../styles/GlobalStyles';
+import { SafeAreaView, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 
 export default function HomeScreen({ navigation }) {
   return (
-    <SafeAreaView style={GlobalStyles.container}>
-      {/* Logo da AgroCare substituindo o título "AGROCARE TECH" */}
+    <SafeAreaView style={styles.container}>
       <Image
-        source={require('../assets/LogoAgroCare.png')} // Certifique-se de que o caminho da logo está correto
-        style={GlobalStyles.smallLogoImg} 
+        source={require('../assets/LogoAgroCare.png')}
+        style={styles.smallLogoImg}
       />
 
-      {/* Texto descritivo */}
-      <Text style={GlobalStyles.subtitle}>
-        Faça parte do novo grupo agropecuarista do Brasil!
+      <Text style={styles.subtitle}>
+        Faça parte da nova geração agropecuarista do Brasil!
       </Text>
 
-      {/* Botão para navegar para a tela de Login */}
       <TouchableOpacity
-        style={GlobalStyles.btn}
+        style={styles.btn}
         onPress={() => navigation.navigate('Login')}
       >
-        <Text style={GlobalStyles.btnText}>Entrar</Text>
+        <Text style={styles.btnText}>Entrar</Text>
       </TouchableOpacity>
 
-      {/* Botão para navegar para a tela de Cadastro */}
       <TouchableOpacity
-        style={GlobalStyles.btn}
+        style={styles.btn}
         onPress={() => navigation.navigate('Cadastro')}
       >
-        <Text style={GlobalStyles.btnText}>Cadastrar-se</Text>
+        <Text style={styles.btnText}>Cadastrar-se</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    backgroundColor: '#103F19',
+    paddingBottom: 40,
+  },
+  smallLogoImg: {
+    width: 350,
+    height: 100,
+    marginBottom: 200,
+  },
+  subtitle: {
+    color: '#FFFFFF',
+    fontSize: 24,
+    padding: 10,
+    textAlign: 'center',
+    marginVertical: 20,
+  },
+  btn: {
+    backgroundColor: '#41784C',
+    borderRadius: 25,
+    padding: 15,
+    width: '80%',
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  btnText: {
+    color: '#FFFFFF',
+    fontSize: 18,
+  },
+});

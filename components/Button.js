@@ -1,11 +1,25 @@
 import React from 'react';
-import { TouchableOpacity, Text } from 'react-native';
-import { GlobalStyles } from '../styles/GlobalStyles';
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
 export default function Button({ onPress, title }) {
   return (
-    <TouchableOpacity style={GlobalStyles.btn} onPress={onPress}>
-      <Text style={GlobalStyles.btnText}>{title}</Text>
+    <TouchableOpacity style={styles.btn} onPress={onPress}>
+      <Text style={styles.btnText}>{title}</Text>
     </TouchableOpacity>
   );
 }
+
+const styles = StyleSheet.create({
+  btn: {
+    backgroundColor: '#41784C',
+    borderRadius: 25,
+    padding: 15,
+    width: '80%',
+    alignItems: 'center',
+    marginVertical: 10,
+  },
+  btnText: {
+    color: '#FFFFFF',
+    fontSize: 18,
+  },
+});
