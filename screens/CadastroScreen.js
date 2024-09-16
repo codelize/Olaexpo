@@ -47,6 +47,9 @@ export default function CadastroScreen({ navigation }) {
           <TouchableOpacity style={styles.btn} onPress={handleCadastro}>
             <Text style={styles.btnText}>Cadastrar-se</Text>
           </TouchableOpacity>
+          <TouchableOpacity style={styles.backBtn} onPress={() => navigation.goBack()}>
+            <Text style={styles.btnText}>Voltar</Text>
+          </TouchableOpacity>
         </SafeAreaView>
       </KeyboardAvoidingView>
     </TouchableWithoutFeedback>
@@ -56,7 +59,7 @@ export default function CadastroScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'flex-end',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     backgroundColor: '#103F19',
     paddingBottom: 40,
@@ -80,5 +83,13 @@ const styles = StyleSheet.create({
   btnText: {
     color: '#FFFFFF',
     fontSize: 18,
+  },
+  backBtn: {
+    backgroundColor: '#41771F', 
+    borderRadius: 25,
+    padding: 15,
+    width: '80%',
+    alignItems: 'center',
+    marginVertical: 10,
   },
 });

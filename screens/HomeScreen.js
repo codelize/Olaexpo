@@ -5,6 +5,11 @@ export default function HomeScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <Image
+          style={styles.circleImg}
+          source={require('../assets/Circle.png')}
+          resizeMode="cover"
+        />
+      <Image
         source={require('../assets/LogoAgroCare.png')}
         style={styles.smallLogoImg}
       />
@@ -61,5 +66,13 @@ const styles = StyleSheet.create({
   btnText: {
     color: '#FFFFFF',
     fontSize: 18,
+  },
+  circleImg: {
+    width: '110%',
+    height: '110%',
+    position: 'absolute',
+    top: 10,
+    opacity: 0.5,
+    zIndex: 0,
   },
 });

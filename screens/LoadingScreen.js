@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#103F19', // Cor de fundo igual à das outras telas
+    backgroundColor: '#103F19',
   },
   loadingImageContainer: {
     flex: 1,
@@ -48,8 +48,8 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   circleImg: {
-    width: '100%',
-    height: '100%',
+    width: '110%',
+    height: '110%',
     position: 'absolute',
     top: 10,
     left: -210,

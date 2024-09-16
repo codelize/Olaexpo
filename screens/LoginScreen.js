@@ -12,7 +12,6 @@ export default function LoginScreen({ navigation }) {
       const { email: storedEmail, senha: storedSenha } = JSON.parse(userData);
 
       if (email === storedEmail && senha === storedSenha) {
-        // Redireciona para a tela AgroScreen após o login bem-sucedido
         navigation.navigate('Agro');
       } else {
         alert('Credenciais inválidas');
@@ -44,6 +43,10 @@ export default function LoginScreen({ navigation }) {
           <TouchableOpacity style={styles.btn} onPress={handleLogin}>
             <Text style={styles.btnText}>Entrar</Text>
           </TouchableOpacity>
+
+          <TouchableOpacity style={styles.backBtn} onPress={() => navigation.goBack()}>
+            <Text style={styles.btnText}>Voltar</Text>
+          </TouchableOpacity>
         </SafeAreaView>
       </KeyboardAvoidingView>
     </TouchableWithoutFeedback>
@@ -53,7 +56,7 @@ export default function LoginScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'flex-end',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     backgroundColor: '#103F19',
     paddingBottom: 40,
@@ -68,6 +71,14 @@ const styles = StyleSheet.create({
   },
   btn: {
     backgroundColor: '#41784C',
+    borderRadius: 25,
+    padding: 15,
+    width: '80%',
+    alignItems: 'center',
+    marginVertical: 10,
+  },
+  backBtn: {
+    backgroundColor: '#41771F', 
     borderRadius: 25,
     padding: 15,
     width: '80%',
