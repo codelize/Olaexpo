@@ -1,26 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SafeAreaView, TextInput, TouchableOpacity, Text, KeyboardAvoidingView, Platform, StyleSheet, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default function LoginScreen() {
+export default function LoginScreen({ navigation }) {
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+
+  const handleLogin = async () => {
+    const userData = await AsyncStorage.getItem('userData');
+    if (userData) {
+      const { email: storedEmail, senha: storedSenha } = JSON.parse(userData);
+
+      if (email === storedEmail && senha === storedSenha) {
+        // Redireciona para a tela AgroScreen após o login bem-sucedido
+        navigation.navigate('Agro');
+      } else {
+        alert('Credenciais inválidas');
+      }
+    } else {
+      alert('Usuário não encontrado');
+    }
+  };
+
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={{ flex: 1 }}
-      >
+      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{ flex: 1 }}>
         <SafeAreaView style={styles.container}>
           <TextInput
             placeholder="Email ou Número de Telefone"
             style={styles.input}
             keyboardType="email-address"
+            value={email}
+            onChangeText={setEmail}
           />
           <TextInput
             placeholder="Senha"
             style={styles.input}
             secureTextEntry
+            value={senha}
+            onChangeText={setSenha}
           />
           
-          <TouchableOpacity style={styles.btn}>
+          <TouchableOpacity style={styles.btn} onPress={handleLogin}>
             <Text style={styles.btnText}>Entrar</Text>
           </TouchableOpacity>
         </SafeAreaView>

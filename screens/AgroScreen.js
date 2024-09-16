@@ -1,0 +1,182 @@
+import React from 'react';
+import { View, Text, Image, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native';
+
+export default function AgroScreen() {
+  return (
+    <SafeAreaView style={styles.container}>
+      <View style={styles.header}>
+      <Image
+        source={require('../assets/LogoAgroCare.png')}
+        style={styles.logoImg}
+      />
+      </View>
+
+    
+      <View style={styles.profileContainer}>
+        <Image
+          source={{ uri: 'https://avatar.iran.liara.run/public/job/farmer/male' }} // Exemplo de URL de avatar
+          style={styles.avatar}
+        />
+        <Text style={styles.userName}>Olá, Agropecuarista</Text>
+        <Text style={styles.userLocation}>📍 São Paulo, SP</Text>
+      </View>
+
+      {/* Informações de animais e consultas */}
+      <View style={styles.infoRow}>
+        <View style={styles.infoBox}>
+          <Text style={styles.infoNumber}>3.127</Text>
+          <Text style={styles.infoLabel}>Animais</Text>
+        </View>
+        <View style={styles.infoBox}>
+          <Text style={styles.infoNumber}>81</Text>
+          <Text style={styles.infoLabel}>Consultas</Text>
+        </View>
+      </View>
+
+      {/* Avisos e Inventário */}
+      <View style={styles.infoRow}>
+        <View style={styles.infoBox}>
+          <Text style={styles.infoNumber}>21</Text>
+          <Text style={styles.infoLabel}>Saúde</Text>
+        </View>
+        <View style={styles.infoBox}>
+          <Text style={styles.infoNumber}>3.127</Text>
+          <Text style={styles.infoLabel}>Vidas</Text>
+        </View>
+      </View>
+
+      {/* Especialistas */}
+      <View style={styles.specialistsContainer}>
+        <Text style={styles.sectionTitle}>Especialistas</Text>
+        <View style={styles.specialistsRow}>
+          <Image
+            source={{ uri: 'https://avatar.iran.liara.run/public/job/doctor/male' }} // Substituir com imagem real
+            style={styles.specialistAvatar}
+          />
+          <Image
+            source={{ uri: 'https://avatar.iran.liara.run/public/job/doctor/male' }} // Substituir com imagem real
+            style={styles.specialistAvatar}
+          />
+          <Image
+            source={{ uri: 'https://avatar.iran.liara.run/public/job/doctor/male' }} // Substituir com imagem real
+            style={styles.specialistAvatar}
+          />
+        </View>
+      </View>
+
+      {/* Menu inferior */}
+      <View style={styles.bottomMenu}>
+        <TouchableOpacity style={styles.menuItem}>
+          <Text style={styles.menuText}>Início</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.menuItem}>
+          <Text style={styles.menuText}>Atividades</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.menuItem}>
+          <Text style={styles.menuText}>Conversas</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.menuItem}>
+          <Text style={styles.menuText}>Preferências</Text>
+        </TouchableOpacity>
+      </View>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#103F19',
+  },
+  header: {
+    alignItems: 'center',
+  },
+
+  logoImg: {
+    width: 170,
+    height: 50,
+    margin: 15,
+  },
+  profileContainer: {
+    alignItems: 'center',
+    marginBottom:30,
+  },
+  avatar: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+  },
+  userName: {
+    color: '#fff',
+    fontSize: 22,
+    fontWeight: 'bold',
+    marginTop: 10,
+  },
+  userLocation: {
+    color: '#ccc',
+    fontSize: 16,
+  },
+
+  infoRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding:10,
+  },
+  infoBox: {
+    backgroundColor: '#41784C',
+    borderRadius: 15,
+    padding: 30,
+    alignItems: 'center',
+    width:'45%',
+  },
+  infoNumber: {
+    color: '#fff',
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
+  infoLabel: {
+    color: '#fff',
+    fontSize: 16,
+  },
+
+
+  specialistsContainer: {
+    backgroundColor:'#1E4B2A',
+    borderRadius:10,
+    padding:10,
+    marginTop:15,
+  },
+  sectionTitle: {
+    color: '#fff',
+    fontSize: 18,
+  },
+  specialistsRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding:30,
+  },
+  specialistAvatar: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+  },
+  bottomMenu: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    position: 'absolute',
+    bottom:3,
+    left: 0,
+    right: 0,
+    padding: 20,
+    backgroundColor:'#1E4B2A',
+    borderRadius:20,
+  },
+  menuItem: {
+    alignItems: 'center',
+    paddingBottom:25,
+  },
+  menuText: {
+    color: '#fff',
+    fontSize: 16,
+  },
+});
