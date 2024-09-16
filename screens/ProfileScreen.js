@@ -2,12 +2,16 @@ import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native';
 import { FontAwesome, MaterialIcons } from '@expo/vector-icons'; 
 import Footer from '../components/footer';
+import { useNavigation } from '@react-navigation/native';
 
-export default function ProfileScreen({navigation}) {
+export default function ProfileScreen() {
+    const navigation = useNavigation();
+
     const handleLogout = () => {
         alert('Logout realizado!');
         navigation.navigate('Login'); 
       };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -37,22 +41,22 @@ export default function ProfileScreen({navigation}) {
 
 
       <View style={styles.menuContainer}>
-        <TouchableOpacity style={styles.menuItem}>
+        <TouchableOpacity style={styles.menuItem}onPress={() => navigation.navigate('Manutencao')}>
           <MaterialIcons name="account-circle" size={24} color="white" />
           <Text style={styles.menuText}>Detalhe do Perfil</Text>
           <MaterialIcons name="keyboard-arrow-right" size={24} color="white" />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem}>
+        <TouchableOpacity style={styles.menuItem}onPress={() => navigation.navigate('Manutencao')}>
           <MaterialIcons name="folder" size={24} color="white" />
           <Text style={styles.menuText}>Avaliações</Text>
           <MaterialIcons name="keyboard-arrow-right" size={24} color="white" />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem}>
+        <TouchableOpacity style={styles.menuItem}onPress={() => navigation.navigate('Manutencao')}>
           <MaterialIcons name="event" size={24} color="white" />
           <Text style={styles.menuText}>Atividades</Text>
           <MaterialIcons name="keyboard-arrow-right" size={24} color="white" />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem}>
+        <TouchableOpacity style={styles.menuItem}onPress={() => navigation.navigate('Manutencao')}>
           <MaterialIcons name="palette" size={24} color="white" />
           <Text style={styles.menuText}>Aparência</Text>
           <MaterialIcons name="keyboard-arrow-right" size={24} color="white" />
