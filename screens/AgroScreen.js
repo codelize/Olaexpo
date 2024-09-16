@@ -75,16 +75,17 @@ export default function AgroScreen({ navigation }) {
         </TouchableOpacity>
 
        
-        <TouchableOpacity style={styles.menuItem}>
+        <TouchableOpacity style={styles.menuItem}onPress={() => navigation.navigate('Manutencao')}>
           <Icon name="event" size={24} color="#fff" />
           <Text style={styles.menuText}>Atividades</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.menuItem}>
+        <TouchableOpacity style={styles.menuItem}onPress={() => navigation.navigate('Manutencao')}>
           <Icon name="forum" size={24} color="#fff" />
           <Text style={styles.menuText}>Conversas</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem}>
+
+        <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Manutencao')}>
           <Icon name="settings" size={24} color="#fff" />
           <Text style={styles.menuText}>Preferências</Text>
         </TouchableOpacity>
