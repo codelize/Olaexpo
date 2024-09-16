@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons'; 
+import Footer from '../components/footer';
 
 export default function AgroScreen({ navigation }) {
   const handleLogout = () => {
@@ -67,29 +68,7 @@ export default function AgroScreen({ navigation }) {
         </View>
       </View>
 
-      <View style={styles.bottomMenu}>
-        {/* Botão Início com ícone */}
-        <TouchableOpacity style={styles.menuItem}>
-          <Icon name="home" size={24} color="#fff" />
-          <Text style={styles.menuText}>Início</Text>
-        </TouchableOpacity>
-
-       
-        <TouchableOpacity style={styles.menuItem}onPress={() => navigation.navigate('Manutencao')}>
-          <Icon name="event" size={24} color="#fff" />
-          <Text style={styles.menuText}>Atividades</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.menuItem}onPress={() => navigation.navigate('Manutencao')}>
-          <Icon name="forum" size={24} color="#fff" />
-          <Text style={styles.menuText}>Conversas</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Manutencao')}>
-          <Icon name="settings" size={24} color="#fff" />
-          <Text style={styles.menuText}>Preferências</Text>
-        </TouchableOpacity>
-      </View>
+      <Footer/>
     </SafeAreaView>
   );
 }
@@ -157,7 +136,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#1E4B2A',
     borderRadius: 10,
     padding: 10,
-    marginTop: 15,
+    margin: 15,
   },
   sectionTitle: {
     color: '#fff',
@@ -172,24 +151,5 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     borderRadius: 30,
-  },
-  bottomMenu: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    position: 'absolute',
-    bottom: 3,
-    left: 0,
-    right: 0,
-    padding: 20,
-    backgroundColor: '#1E4B2A',
-    borderRadius: 20,
-  },
-  menuItem: {
-    alignItems: 'center',
-    paddingBottom: 25,
-  },
-  menuText: {
-    color: '#fff',
-    fontSize: 16,
   },
 });

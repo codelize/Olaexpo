@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons'; // Usando MaterialIcons
 import { useNavigation } from '@react-navigation/native';
+import Footer from '../components/footer';
 
 export default function MaintenanceScreen() {
   const navigation = useNavigation();
@@ -19,6 +20,7 @@ export default function MaintenanceScreen() {
       >
         <Text style={styles.backBtnText}>Voltar</Text>
       </TouchableOpacity>
+      <Footer/>
     </SafeAreaView>
   );
 }

@@ -7,6 +7,7 @@ import CadastroScreen from '../screens/CadastroScreen';
 import HomeScreen from '../screens/HomeScreen';
 import AgroScreen from '../screens/AgroScreen';
 import MaintenanceScreen from '../screens/MaintenanceScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 
 const Stack = createStackNavigator();
 
@@ -20,6 +21,7 @@ export default function AppNavigator() {
         <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Agro" component={AgroScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Manutencao" component={MaintenanceScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Profile" component={ProfileScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
