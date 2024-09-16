@@ -1,17 +1,15 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native';
-import { FontAwesome, MaterialIcons } from '@expo/vector-icons'; // Para ícones
+import { FontAwesome, MaterialIcons } from '@expo/vector-icons'; 
 import Footer from '../components/footer';
 
 export default function ProfileScreen({navigation}) {
     const handleLogout = () => {
-        // Lógica para deslogar o usuário
         alert('Logout realizado!');
         navigation.navigate('Login'); 
       };
   return (
     <SafeAreaView style={styles.container}>
-      {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <MaterialIcons name="arrow-back-ios" size={24} color="white" />
@@ -19,7 +17,6 @@ export default function ProfileScreen({navigation}) {
         <Text style={styles.headerTitle}>Perfil</Text>
       </View>
 
-      {/* Perfil */}
       <View style={styles.profileContainer}>
         <View style={styles.profileImageContainer}>
           <Image
@@ -30,15 +27,15 @@ export default function ProfileScreen({navigation}) {
             <FontAwesome name="pencil" size={16} color="white" />
           </TouchableOpacity>
         </View>
-        <Text style={styles.userName}>Firmino Armstrong</Text>
-        <Text style={styles.userLocation}>📍 Rio Verde, Goiás</Text>
+        <Text style={styles.userName}>Usuario logado</Text>
+        <Text style={styles.userLocation}>📍 São Paulo, SP</Text>
         <View style={styles.ratingContainer}>
           <FontAwesome name="star" size={16} color="gold" />
           <Text style={styles.ratingText}>4.8</Text>
         </View>
       </View>
 
-      {/* Menu de opções */}
+
       <View style={styles.menuContainer}>
         <TouchableOpacity style={styles.menuItem}>
           <MaterialIcons name="account-circle" size={24} color="white" />

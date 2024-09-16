@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons'; // Usando MaterialIcons
+import Icon from 'react-native-vector-icons/MaterialIcons'; 
 import { useNavigation } from '@react-navigation/native';
 import Footer from '../components/footer';
 
@@ -16,7 +16,7 @@ export default function MaintenanceScreen() {
       <Text style={styles.message}>Esta funcionalidade não está disponível no momento. Por favor, tente novamente mais tarde.</Text>
       <TouchableOpacity
         style={styles.backBtn}
-        onPress={() => navigation.goBack()} // Navega para a tela anterior
+        onPress={() => navigation.goBack()} 
       >
         <Text style={styles.backBtnText}>Voltar</Text>
       </TouchableOpacity>
