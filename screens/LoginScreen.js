@@ -12,7 +12,7 @@ export default function LoginScreen({ navigation }) {
       const { email: storedEmail, senha: storedSenha } = JSON.parse(userData);
 
       if (email === storedEmail && senha === storedSenha) {
-        navigation.navigate('Agro');
+        navigation.navigate('MainTabs', { screen: 'Agro' });
       } else {
         alert('Credenciais inválidas');
       }

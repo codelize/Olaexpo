@@ -1,7 +1,6 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons'; 
-import Footer from '../components/footer';
+import { Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default function AgroScreen({ navigation }) {
   const handleLogout = () => {
@@ -19,7 +18,6 @@ export default function AgroScreen({ navigation }) {
       </View>
 
       <View style={styles.profileContainer}>
-      
         <Image
           source={{ uri: 'https://avatar.iran.liara.run/public/job/farmer/male' }} 
           style={styles.avatar}
@@ -66,9 +64,7 @@ export default function AgroScreen({ navigation }) {
             style={styles.specialistAvatar}
           />
         </View>
-      </View>
-
-      <Footer/>
+      </View>      
     </SafeAreaView>
   );
 }
@@ -83,11 +79,6 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     alignItems: 'center',
     paddingHorizontal: 20,
-  },
-  logoImg: {
-    width: 170,
-    height: 50,
-    margin: 15,
   },
   logoutButton: {
     padding: 10,

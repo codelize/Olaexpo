@@ -13,7 +13,7 @@ export default function CadastroScreen({ navigation }) {
       await AsyncStorage.setItem('userData', JSON.stringify({ primeiroNome, email, senha }));
 
       // Redireciona para a tela AgroScreen após o cadastro
-      navigation.navigate('Agro');
+      navigation.navigate('MainTabs', { screen: 'Agro' });
     } else {
       alert('Por favor, preencha todos os campos.');
     }

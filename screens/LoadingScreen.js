@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { SafeAreaView, Image, View, StyleSheet } from 'react-native';
+import HomeScreen from './HomeScreen';
 
 export default function LoadingScreen({ navigation }) {
   useEffect(() => {

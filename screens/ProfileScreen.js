@@ -1,8 +1,7 @@
-import React from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native';
-import { FontAwesome, MaterialIcons } from '@expo/vector-icons'; 
-import Footer from '../components/footer';
+import { FontAwesome, MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import React from 'react';
+import { Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function ProfileScreen() {
     const navigation = useNavigation();
@@ -41,22 +40,22 @@ export default function ProfileScreen() {
 
 
       <View style={styles.menuContainer}>
-        <TouchableOpacity style={styles.menuItem}onPress={() => navigation.navigate('Manutencao')}>
+        <TouchableOpacity style={styles.menuItem}onPress={() => navigation.navigate('MainTabs', { screen: 'Atividades' })}>
           <MaterialIcons name="account-circle" size={24} color="white" />
           <Text style={styles.menuText}>Detalhe do Perfil</Text>
           <MaterialIcons name="keyboard-arrow-right" size={24} color="white" />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem}onPress={() => navigation.navigate('Manutencao')}>
+        <TouchableOpacity style={styles.menuItem}onPress={() => navigation.navigate('MainTabs', { screen: 'Atividades' })}>
           <MaterialIcons name="folder" size={24} color="white" />
           <Text style={styles.menuText}>Avaliações</Text>
           <MaterialIcons name="keyboard-arrow-right" size={24} color="white" />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem}onPress={() => navigation.navigate('Manutencao')}>
+        <TouchableOpacity style={styles.menuItem}onPress={() => navigation.navigate('MainTabs', { screen: 'Atividades' })}>
           <MaterialIcons name="event" size={24} color="white" />
-          <Text style={styles.menuText}>Atividades</Text>
+          <Text style={styles.menuText}>Atividadess</Text>
           <MaterialIcons name="keyboard-arrow-right" size={24} color="white" />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem}onPress={() => navigation.navigate('Manutencao')}>
+        <TouchableOpacity style={styles.menuItem}onPress={() => navigation.navigate('MainTabs', { screen: 'Atividades' })}>
           <MaterialIcons name="palette" size={24} color="white" />
           <Text style={styles.menuText}>Aparência</Text>
           <MaterialIcons name="keyboard-arrow-right" size={24} color="white" />
@@ -67,8 +66,6 @@ export default function ProfileScreen() {
           <MaterialIcons name="keyboard-arrow-right" size={24} color="white" />
         </TouchableOpacity>
       </View>
-
-      <Footer/>
     </SafeAreaView>
   );
 }
