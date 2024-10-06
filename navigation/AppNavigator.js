@@ -10,6 +10,7 @@ import HomeScreen from '../screens/HomeScreen';
 import AgroScreen from '../screens/AgroScreen';
 import MaintenanceScreen from '../screens/MaintenanceScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import KeyboardDismissWrapper from '../components/KeyboardDismissWrapper'; // Importar o KeyboardDismissWrapper
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -49,19 +50,19 @@ function TabNavigator() {
   );
 }
 
-
-
 // Stack Navigation para Loading, Login, Cadastro, Home
 export default function AppNavigator() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Loading">
-        <Stack.Screen name="Loading" component={LoadingScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Cadastro" component={CadastroScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="MainTabs" component={TabNavigator} options={{ headerShown: false }} />
-      </Stack.Navigator>
+      <KeyboardDismissWrapper>
+        <Stack.Navigator initialRouteName="Loading">
+          <Stack.Screen name="Loading" component={LoadingScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="Cadastro" component={CadastroScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="MainTabs" component={TabNavigator} options={{ headerShown: false }} />
+        </Stack.Navigator>
+      </KeyboardDismissWrapper>
     </NavigationContainer>
   );
 }

@@ -3,10 +3,9 @@ import { Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'r
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default function AgroScreen({ navigation }) {
-  const handleLogout = () => {
-    // Lógica para deslogar o usuário
-    alert('Logout realizado!');
-    navigation.navigate('Login'); 
+  const handleLogout = async () => {
+    await AsyncStorage.removeItem('userData');
+    navigation.navigate('Login'); // Redireciona para a tela de login
   };
 
   return (

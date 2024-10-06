@@ -87,12 +87,12 @@ const styles = StyleSheet.create({
     
   },
   circleImg: {
-    width: '110%',
-    height: '110%',
+    width: '200%',
+    height: '130%',
     position: 'absolute',
-    top: 250,
-    opacity: 0.3,
-    zIndex: 1, // Definimos a imagem circle como o fundo
+    top: 200,
+    opacity: 425,
+    zIndex: 0, // Definimos a imagem circle como o fundo
   },
   ellipseImg: {
     width: '150%', // Ajuste da largura para deixar com proporções semelhantes
@@ -100,6 +100,6 @@ const styles = StyleSheet.create({
     top: 800, // Ajuste de posicionamento vertical
     left: 50, // Ajuste para posicionamento lateral (esquerda)
     transform: [{ rotate: '-2deg' }], // Girando a elipse para ficar inclinada
-    zIndex: 0, 
+    zIndex: 1, 
   },
 });

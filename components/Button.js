@@ -20,6 +20,6 @@ const styles = StyleSheet.create({
   },
   btnText: {
     color: '#FFFFFF',
-    fontSize: 18,
+    fontSize: 40,
   },
 });
