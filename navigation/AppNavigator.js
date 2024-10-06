@@ -10,11 +10,11 @@ import HomeScreen from '../screens/HomeScreen';
 import AgroScreen from '../screens/AgroScreen';
 import MaintenanceScreen from '../screens/MaintenanceScreen';
 import ProfileScreen from '../screens/ProfileScreen';
-import KeyboardDismissWrapper from '../components/KeyboardDismissWrapper'; // Importar o KeyboardDismissWrapper
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
+// Bottom Tab Navigator
 function TabNavigator() {
   return (
     <Tab.Navigator
@@ -26,7 +26,7 @@ function TabNavigator() {
           if (route.name === 'Agro') {
             iconName = 'home';
           } else if (route.name === 'Atividades') {
-            iconName = 'briefcase-outline'; 
+            iconName = 'briefcase-outline';
           } else if (route.name === 'Chat') {
             iconName = 'chatbubble-outline';
           } else if (route.name === 'Profile') {
@@ -35,34 +35,30 @@ function TabNavigator() {
 
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarStyle: { backgroundColor: '#1E4B2A' }, 
+        tabBarStyle: { backgroundColor: '#1E4B2A' }, // Cor do fundo da barra inferior
+        tabBarActiveTintColor: '#68D391', // Cor do ícone ativo
+        tabBarInactiveTintColor: '#fff',  // Cor do ícone inativo
       })}
-      tabBarOptions={{
-        activeTintColor: '#1E4B', 
-        inactiveTintColor: '#fff',
-      }}
     >
-      <Tab.Screen name="Agro" component={AgroScreen} options={{ headerShown: false }}/>
-      <Tab.Screen name="Atividades" component={MaintenanceScreen} options={{ headerShown: false }}/>
-      <Tab.Screen name="Chat" component={MaintenanceScreen} options={{ headerShown: false }}/>
-      <Tab.Screen name="Profile" component={ProfileScreen} options={{ headerShown: false }}/>
+      <Tab.Screen name="Agro" component={AgroScreen} options={{ headerShown: false }} />
+      <Tab.Screen name="Atividades" component={MaintenanceScreen} options={{ headerShown: false }} />
+      <Tab.Screen name="Chat" component={MaintenanceScreen} options={{ headerShown: false }} />
+      <Tab.Screen name="Profile" component={ProfileScreen} options={{ headerShown: false }} />
     </Tab.Navigator>
   );
 }
 
-// Stack Navigation para Loading, Login, Cadastro, Home
+// Stack Navigation
 export default function AppNavigator() {
   return (
     <NavigationContainer>
-      <KeyboardDismissWrapper>
-        <Stack.Navigator initialRouteName="Loading">
-          <Stack.Screen name="Loading" component={LoadingScreen} options={{ headerShown: false }} />
-          <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
-          <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
-          <Stack.Screen name="Cadastro" component={CadastroScreen} options={{ headerShown: false }} />
-          <Stack.Screen name="MainTabs" component={TabNavigator} options={{ headerShown: false }} />
-        </Stack.Navigator>
-      </KeyboardDismissWrapper>
+      <Stack.Navigator initialRouteName="Loading">
+        <Stack.Screen name="Loading" component={LoadingScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Cadastro" component={CadastroScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="MainTabs" component={TabNavigator} options={{ headerShown: false }} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }

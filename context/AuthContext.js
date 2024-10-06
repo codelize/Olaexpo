@@ -1,34 +1,43 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    const checkLoginStatus = async () => {
-      const storedStatus = await AsyncStorage.getItem('isLoggedIn');
-      if (storedStatus === 'true') {
-        setIsLoggedIn(true);
-      }
+    const login = async (username, password) => {
+        try {
+            console.log("Tentando login com:", username, password); // Log de depuração
+
+            if (username === 'meuUsuario' && password === 'minhaSenha123') {
+                const userData = { username };
+                await AsyncStorage.setItem('user', JSON.stringify(userData));
+                setUser(userData);
+                console.log("Login bem-sucedido:", userData); // Log de sucesso
+                return true;
+            } else {
+                console.log("Login falhou. Credenciais inválidas.");
+                return false;
+            }
+        } catch (error) {
+            console.error('Erro ao fazer login', error);
+            return false;
+        }
     };
-    checkLoginStatus();
-  }, []);
 
-  const login = async () => {
-    await AsyncStorage.setItem('isLoggedIn', 'true');
-    setIsLoggedIn(true);
-  };
+    const logout = async () => {
+        try {
+            await AsyncStorage.removeItem('user');
+            setUser(null);
+        } catch (error) {
+            console.error('Erro ao fazer logout', error);
+        }
+    };
 
-  const logout = async () => {
-    await AsyncStorage.removeItem('isLoggedIn');
-    setIsLoggedIn(false);
-  };
-
-  return (
-    <AuthContext.Provider value={{ isLoggedIn, login, logout }}>
-      {children}
-    </AuthContext.Provider>
-  );
+    return (
+        <AuthContext.Provider value={{ user, login, logout }}>
+            {children}
+        </AuthContext.Provider>
+    );
 };

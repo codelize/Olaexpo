@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { SafeAreaView, TextInput, TouchableOpacity, Text, KeyboardAvoidingView, Platform, StyleSheet, TouchableWithoutFeedback, Keyboard, View, Alert } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { AuthContext } from '../context/AuthContext'; // Importando o contexto de autenticação
 
 export default function LoginScreen({ navigation }) {
-  const validUsername = 'admin';
-  const validPassword = '12345';
-
+  const { login } = useContext(AuthContext); // Usando o login do AuthContext
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({});
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     let errorMessages = {};
 
     if (!username) {
@@ -27,8 +26,10 @@ export default function LoginScreen({ navigation }) {
       return;
     }
 
-    if (username === validUsername && password === validPassword) {
-      navigation.navigate('Agro');
+    const isLoggedIn = await login(username, password); // Chama a função de login do contexto
+
+    if (isLoggedIn) {
+      navigation.navigate('AgroScreen'); // Redireciona para a tela AgroScreen se o login for bem-sucedido
     } else {
       setErrors({ general: 'Usuário ou senha incorretos. Tente novamente.' });
     }
