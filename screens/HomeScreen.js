@@ -4,20 +4,32 @@ import { SafeAreaView, Text, TouchableOpacity, Image, StyleSheet } from 'react-n
 export default function HomeScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
+      {/* Imagem de fundo: circle */}
       <Image
-          style={styles.circleImg}
-          source={require('../assets/Circle.png')}
-          resizeMode="cover"
-        />
+        style={styles.circleImg}
+        source={require('../assets/Circle.png')}
+        resizeMode="cover"
+      />
+
+      {/* Elipse sobreposta */}
+      <Image
+        style={styles.ellipseImg}
+        source={require('../assets/Ellipse.png')} // Certifique-se de que essa imagem esteja no caminho correto
+        resizeMode="cover"
+      />
+
+      {/* Logo */}
       <Image
         source={require('../assets/LogoAgroCare.png')}
         style={styles.smallLogoImg}
       />
 
+      {/* Texto do slogan */}
       <Text style={styles.subtitle}>
-        Faça parte da nova geração agropecuarista do Brasil!
+        Faça parte da nova{"\n"}geração agropecuarista{"\n"}do Brasil!
       </Text>
 
+      {/* Botões */}
       <TouchableOpacity
         style={styles.btn}
         onPress={() => navigation.navigate('Login')}
@@ -47,13 +59,18 @@ const styles = StyleSheet.create({
     width: 350,
     height: 100,
     marginBottom: 200,
+    zIndex: 1, // A logo deve estar acima das imagens
   },
   subtitle: {
     color: '#FFFFFF',
-    fontSize: 24,
+    fontSize: 22,
+    fontFamily: 'Courier',
     padding: 10,
-    textAlign: 'center',
+    textAlign: 'left',
     marginVertical: 20,
+    width: '80%',
+    lineHeight: 28,
+    zIndex: 1, // O texto também deve estar acima das imagens
   },
   btn: {
     backgroundColor: '#41784C',
@@ -62,17 +79,27 @@ const styles = StyleSheet.create({
     width: '80%',
     alignItems: 'center',
     marginBottom: 10,
+    zIndex: 1, // Botões sobre as imagens
   },
   btnText: {
     color: '#FFFFFF',
     fontSize: 18,
+    
   },
   circleImg: {
     width: '110%',
     height: '110%',
     position: 'absolute',
-    top: 10,
-    opacity: 0.5,
-    zIndex: 0,
+    top: 250,
+    opacity: 0.3,
+    zIndex: 1, // Definimos a imagem circle como o fundo
+  },
+  ellipseImg: {
+    width: '150%', // Ajuste da largura para deixar com proporções semelhantes
+    height: '70%', // Ajuste da altura para se assemelhar à imagem
+    top: 800, // Ajuste de posicionamento vertical
+    left: 50, // Ajuste para posicionamento lateral (esquerda)
+    transform: [{ rotate: '-2deg' }], // Girando a elipse para ficar inclinada
+    zIndex: 0, 
   },
 });
